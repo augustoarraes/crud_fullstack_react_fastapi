@@ -1,4 +1,4 @@
-# FullStack Microsserviço CRUD React JS e Python FastAPI
+# FullStack Microsserviço CRUD: React JS e Python FastAPI
 
 Uma Aplicação FullStack onde temos como frontend em React JS, backend em Python FastAPI e banco de dados Postgres.
 - Pasta `fastapi_crud` é o backend da aplicação
@@ -7,7 +7,7 @@ Uma Aplicação FullStack onde temos como frontend em React JS, backend em Pytho
 
 ## Subir a aplicação rápido
 
-Antes de subir a aplicação, verificar as credenciais, principalmente do BD, no `docker-compose.yml` e no `.env` do backend.
+Antes de subir a aplicação, verificar as credenciais, principalmente do BD, no `compose.yml` e no `.env` do backend.
 
 ```bash
 docker compose up -d
@@ -18,24 +18,11 @@ docker restart fastapi_crud
 docker logs -f fastapi_crud
 ```
 
-Acessando a Aplicação [http://localhost:3000](http://localhost:3000)
+Acessando a Aplicação FrontEnd [http://localhost:3000](http://localhost:3000)
 
 Agora é so ver as rotas REST disponíveis para testar o backdend direto (Swagger da API): [http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs)
 
-E opcional tem a monitoração do serviço: `http://127.0.0.1:9090/`
-
-
-## Banco de Dados
-
-Sugiro ter o pgAdmin para acessar o banco de dados.
-```bash
-docker run --add-host=host.docker.internal:172.17.0.1 --name pgAdmin -p 8081:80 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -d dpage/pgadmin4
-```
-host do banco: host.docker.internal (Se for usar algum software Admin de dados, o host é `localhost` normal) \
-nome do banco: fastapiDB \
-porta: 5432 \
-user: postgres \
-pass: sua_senha 
+E opcional tem a monitoração do serviço: `http://127.0.0.1:9090`
 
 
 ## Opcional para quem estiver ingressando no FastAPI

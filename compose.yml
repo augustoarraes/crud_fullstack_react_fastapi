@@ -27,6 +27,7 @@ services:
       - lab-network
   fastapi:
     build: ./fastapi_crud
+    image: fastapi_crud
     container_name: fastapi_crud
     ports:
       - 5000:5000
@@ -38,9 +39,9 @@ services:
       - lab-network
   frontend:
     build: ./frontend-react-produtos
-    container_name: frontend-react-produtos
+    container_name: frontend_crud
     ports:
-      - "3000:80" # Porta externa 3000, interna 80 do nginx
+      - "3000:80"
     depends_on:
       - fastapi
     restart: always
@@ -55,15 +56,3 @@ volumes:
 networks: 
   lab-network:
     driver: bridge
-
-
-# docker-compose up -d
-# docker start 
-#
-# App:
-# http://127.0.0.1:5000/
-# http://127.0.0.1:5000/docs
-#
-#
-# Prometheus:
-# http://127.0.0.1:9090/

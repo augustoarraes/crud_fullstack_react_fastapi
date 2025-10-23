@@ -12,10 +12,10 @@ app = FastAPI(title='FastAPI CRUD Sample', description='Microsservice CRUD Sampl
 # Configurações de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ou lista de origens específicas: ["https://meusite.com"]
+    allow_origins=["*"],  # lista de origens específicas: ["https://meusite.com"]
     allow_credentials=True,
-    allow_methods=["*"],  # ou lista: ["GET", "POST", "PUT", "DELETE"]
-    allow_headers=["*"],  # ou lista específica de headers
+    allow_methods=["*"],  # ["GET", "POST", "PUT", "DELETE"]
+    allow_headers=["*"], 
 )
 
 @app.post("/create", response_model=ProdutoData, status_code=status.HTTP_201_CREATED, tags=['CRUD'])
@@ -79,5 +79,3 @@ Instrumentator().instrument(app).expose(app) # prometheus
 # uvicorn api:app --reload
 # http://127.0.0.1:8000/
 # http://127.0.0.1:8000/docs
-
-# Ref: https://github.com/matheusvclls/fast-api-crud
