@@ -39,6 +39,7 @@ services:
       - lab-network
   frontend:
     build: ./frontend-react-produtos
+    image: frontend_crud
     container_name: frontend_crud
     ports:
       - "3000:80"
