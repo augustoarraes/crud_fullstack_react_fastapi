@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   db:
     image: postgres:13-alpine
     container_name: fastapi_db
@@ -14,6 +15,7 @@ services:
       - POSTGRES_DB=fastapiDB
     networks:
       - lab-network
+  
   prometheus:
     image: prom/prometheus
     container_name: fastapi_prometheus
@@ -25,8 +27,11 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     networks:
       - lab-network
+  
   fastapi:
-    build: ./fastapi_crud
+    build: 
+      context: ./fastapi_crud
+      dockerfile: Dockerfile
     image: fastapi_crud
     container_name: fastapi_crud
     ports:
@@ -37,8 +42,11 @@ services:
       - ./fastapi_crud:/app
     networks:
       - lab-network
+  
   frontend:
-    build: ./frontend-react-produtos
+    build: 
+      context: ./frontend-react-produtos
+      dockerfile: Dockerfile
     image: frontend_crud
     container_name: frontend_crud
     ports:
