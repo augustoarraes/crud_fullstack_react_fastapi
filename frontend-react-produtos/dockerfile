@@ -12,6 +12,11 @@ RUN npm run build
 # Etapa 2: Servir com Nginx
 FROM nginx:alpine
 
+RUN apk add --no-cache tzdata && \
+    cp /usr/share/zoneinfo/America/Fortaleza /etc/localtime && \
+    echo "America/Fortaleza" > /etc/timezone && \
+    apk del tzdata
+
 # Copia o build gerado para a pasta padrão do nginx
 COPY --from=build /app/build /usr/share/nginx/html
 

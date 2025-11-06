@@ -45,7 +45,7 @@ services:
       - "3000:80"
     depends_on:
       - fastapi
-    restart: always
+    restart: unless-stopped
     #volumes: 
     #  - ./frontend-react-produtos:/src
     networks:

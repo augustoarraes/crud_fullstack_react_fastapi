@@ -2,9 +2,15 @@ FROM python:3.9.19-alpine
 
 LABEL maintainer="Augusto Arraes <arraes.augusto@gmail.com>"
 
-# set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
+
+RUN apk add --no-cache tzdata && \
+    cp /usr/share/zoneinfo/America/Fortaleza /etc/localtime && \
+    echo "America/Fortaleza" > /etc/timezone && \
+    apk del tzdata
+
 
 WORKDIR /app
  
