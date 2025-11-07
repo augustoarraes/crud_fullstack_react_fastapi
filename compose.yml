@@ -13,6 +13,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=q7963q
       - POSTGRES_DB=fastapiDB
+      - TZ=America/Fortaleza
     networks:
       - lab-network
   
